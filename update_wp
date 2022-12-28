@@ -17,9 +17,9 @@ function main_prog() {
                         
                         cat >> $LOGDIR/${PARTS[2]}-${PARTS[4]}.log << EOF
 
-===========================
+===============================
 `date`
----------------------------
+-------------------------------
 
 EOF
 
@@ -29,5 +29,6 @@ EOF
 }
 
 [ -d $LOGDIR ] || mkdir -p $LOGDIR
-#find $BASE_DIR -name 'version.php' -path '*wp-includes/*' -print -exec grep '$wp_version =' {} \; -exec echo '' \;
 find $BASE_DIR -name 'version.php' -path '*wp-includes/*' -print | main_prog
+
+#find $BASE_DIR -name 'version.php' -path '*wp-includes/*' -print -exec grep '$wp_version =' {} \; -exec echo '' \;
